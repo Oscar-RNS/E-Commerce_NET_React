@@ -1,11 +1,16 @@
+import { useEffect, useState } from "react";
 import { Product } from "../../models/product";
 import ProductList from "./ProductList";
 
-interface MyProducts {
-  products : Product[];
-}
+export default function Catalog() {
 
-export default function Catalog({products} : MyProducts) {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch('https://localhost:7244/api/products')
+    .then(response => response.json())
+    .then(data => setProducts(data))
+  }, [])
   
   return (
     <>

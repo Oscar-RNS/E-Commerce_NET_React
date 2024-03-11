@@ -1,10 +1,11 @@
-import { Button } from "@mui/material";
+import { Avatar, Button, CardHeader } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Product } from "../../models/product";
+import { blueGrey, red } from "@mui/material/colors";
 
 interface MyProducts {
   product : Product;
@@ -13,23 +14,31 @@ interface MyProducts {
 export default function ProductCard({product} : MyProducts) {
   return (
     <>   
-     {<Card sx={{ maxWidth: 345 }}>
+     {<Card>
+      <CardHeader 
+         avatar= {
+          <Avatar sx={{bgcolor: blueGrey[700]}}>
+            {product.name.charAt(0).toUpperCase()}
+          </Avatar>
+         }
+         title={product.name}
+         />
       <CardMedia
-        sx={{ height: 140 }}
-        image="https://images.app.goo.gl/iVNcMzEgTzoRnJcj8"
+        sx={{ height: 250, bgcolor: 'GrayText' }}
+        image={product.pictureUrl}
         title={product.name}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {product.name}
+        <Typography gutterBottom variant="h5">
+          ${(product.price / 100).toFixed(2)}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {product.description}
+          {product.name}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Add Cart</Button>
+        <Button size="small">View</Button>
       </CardActions>
   </Card> }
     </>
