@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Product } from "../../models/product";
-import { blueGrey, red } from "@mui/material/colors";
+import { blueGrey} from "@mui/material/colors";
 
 interface MyProducts {
   product : Product;
