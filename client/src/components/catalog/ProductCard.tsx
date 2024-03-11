@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Product } from "../../models/product";
 import { blueGrey} from "@mui/material/colors";
+import { Link } from "react-router-dom";
 
 interface MyProducts {
   product : Product;
@@ -38,7 +39,7 @@ export default function ProductCard({product} : MyProducts) {
       </CardContent>
       <CardActions>
         <Button size="small">Add Cart</Button>
-        <Button size="small">View</Button>
+        <Button size="small" component={Link} to={`/catalog/${product.id}`}>View</Button>
       </CardActions>
   </Card> }
     </>
